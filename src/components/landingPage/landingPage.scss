@@ -1,0 +1,46 @@
+.landing-container {
+  margin: 7% 0 0 0;
+  align-content: center;
+  text-align: center;
+
+  &__emoji {
+    display: inline-block;
+    &__image {
+      width: 500px;
+    }
+  }
+
+  &__starting {
+    display: inline-block;
+    margin: 6% 0 5% 0;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2em;
+  }
+
+  &__timer {
+    margin: 0 0 1% 0;
+    text-align: right !important;
+    &__image {
+      display: inline-block;
+      width: 40px;
+    }
+  }
+
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #000000;
+    transition: width .6s ease;
+  }
+
+  &__clock {
+    display: inline-block;
+    margin: 1% 0 0 0;
+  }
+}
