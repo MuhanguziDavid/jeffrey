@@ -1,0 +1,99 @@
+.home-container {
+  margin: 3% 2% 0 2%;
+  align-content: center;
+  text-align: center;
+
+  &__ubc {
+    display: inline-block;
+    text-align: left;
+    &__image {
+      width: 80px;
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+      border-radius: 10px;
+    }
+  }
+
+  &__clock {
+    display: inline-block;
+    margin: 1% 0 0 0;
+  }
+
+  &__topic {
+    background-color: #000000;
+    border-radius: 20px;
+    padding: 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  &__lock {
+    margin: 0 0 0 0;
+    text-align: right;
+    &__image {
+      display: inline-block;
+      width: 70px;
+    }
+  }
+
+  &__emoji {
+    display: inline-block;
+    margin: 5% 0 0 0%;
+    text-align: right;
+    &__image {
+      width: 150px;
+    }
+  }
+
+  &__question {
+    margin: 5% 0 0 0;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 30px;
+    font-weight: bolder;
+    padding: 40px 0;
+  }
+
+  &__like {
+    display: inline-block;
+    margin: 15% 0 0 0%;
+    text-align: right;
+    &__image {
+      width: 80px;
+    }
+  }
+
+  &__answer {
+    margin: 15% 0 0 0;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 30px;
+    font-weight: bolder;
+    padding: 20px 0;
+    background-color: #f89335;
+  }
+
+  &__timer {
+    margin: 9% 0 1% 0;
+    text-align: right !important;
+    &__image {
+      display: inline-block;
+      width: 40px;
+    }
+  }
+
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #000000;
+    transition: width .6s ease;
+  }
+}
