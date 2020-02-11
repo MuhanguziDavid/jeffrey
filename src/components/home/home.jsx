@@ -8,7 +8,8 @@ import lock from '../../assets/lock.png';
 import like from '../../assets/like.png';
 import './home.scss';
 
-const Home = () => {
+const Home = props => {
+  const { questions, count } = props;
   return (
     <div className="home-container">
       <Row>
@@ -27,7 +28,7 @@ const Home = () => {
           </Row>
           <Row className="justify-content-md-center">
             <Col md="auto" className="home-container__topic">
-              Current Affairs
+              {questions[0].question.category}
             </Col>
           </Row>
         </Col>
@@ -41,16 +42,25 @@ const Home = () => {
             <Image className="home-container__emoji__image" src={jumbotronEmoji} alt="Question" scale="0" />
           </Col>
           <Col sm={9} className="home-container__question">
-            <h1><strong>Who is Uganda's Prime Minister!</strong></h1>
+            <h1><strong>{questions[0].question.question_text}</strong></h1>
+
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Col md="auto" className="home-container__like">
-            <Image className="home-container__like__image" src={like} alt="Answer" scale="0" />
-          </Col>
-          <Col md="auto" className="home-container__answer">
-            <h3><strong>Ruhakana Rugunda</strong></h3>
-          </Col>
+          {count > 99 ? (
+            <React.Fragment>
+              <Col md="auto" className="home-container__like">
+                <Image className="home-container__like__image" src={like} alt="Answer" scale="0" />
+              </Col>
+              <Col md="auto" className="home-container__answer">
+                <h3><strong>{questions[0].correct_choice.choice_text}</strong></h3>
+              </Col>
+            </React.Fragment>
+          ) : (
+            <div className="home-container__nothing">
+              nothing
+            </div>
+          )}
         </Row>
       </Container>
       <Row>
@@ -59,7 +69,7 @@ const Home = () => {
         </Col>
       </Row>
       <ProgressBar
-        now={60}
+        now={count}
         min={0}
         max={100}
       />

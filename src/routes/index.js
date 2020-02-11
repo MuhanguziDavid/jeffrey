@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import LandingPage from '../components/landingPage/landingPage';
-import Home from '../components/home/home';
+import LandingPage from '../containers/landingPage/landingPage';
+import Home from '../containers/home/home';
 
 const Routes = () => (
   <Switch>
