@@ -1,21 +1,21 @@
 import {
   GET_QUESTIONS_SUCCESS,
-  QUESTIONS_ERROR,
+  ERROR_OCCURRED,
 } from '../actions/types';
 
 const initialSate = {
   getQuestionsSuccess: {},
-  questionsError: false,
+  questionsError: {},
 };
 
-const QuestionsReducer = (state = initialSate, action) => {
+const questionsReducer = (state = initialSate, action) => {
   switch (action.type) {
     case GET_QUESTIONS_SUCCESS:
       return {
         ...state,
         getQuestionsSuccess: action.payload,
       };
-    case QUESTIONS_ERROR:
+    case ERROR_OCCURRED:
       return {
         ...state,
         questionsError: action.payload,
@@ -25,4 +25,4 @@ const QuestionsReducer = (state = initialSate, action) => {
   }
 };
 
-export default QuestionsReducer;
+export default questionsReducer;

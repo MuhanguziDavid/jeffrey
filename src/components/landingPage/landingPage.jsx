@@ -5,7 +5,8 @@ import jumbotronEmoji from '../../assets/jumbotronEmoji.jpeg';
 import timer from '../../assets/timer.png';
 import './landingPage.scss';
 
-const LandingPage = () => {
+const LandingPage = props => {
+  const { count } = props
   return (
     <Container>
       <div className="landing-container">
@@ -25,7 +26,7 @@ const LandingPage = () => {
           </Col>
         </Row>
         <ProgressBar
-          now={60}
+          now={count}
           min={0}
           max={100}
         />

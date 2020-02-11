@@ -76,6 +76,14 @@
     background-color: #f89335;
   }
 
+  &__nothing {
+    margin: 16% 0 0 0;
+    position: relative;
+    padding: 20px 0;
+    background-color: #ffffff;
+    color: #ffffff;
+  }
+
   &__timer {
     margin: 9% 0 1% 0;
     text-align: right !important;
