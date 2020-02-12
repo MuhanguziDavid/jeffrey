@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import HomeComponent from '../../components/home/home';
