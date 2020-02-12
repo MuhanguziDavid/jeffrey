@@ -104,4 +104,11 @@
     background-color: #000000;
     transition: width .6s ease;
   }
+
+  &__end {
+    margin: 19% 0 0 0;
+    &__text {
+    margin: 0 0 2% 0;
+    }
+  }
 }
