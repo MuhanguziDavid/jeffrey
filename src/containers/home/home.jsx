@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Button } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import HomeComponent from '../../components/home/home';
@@ -14,16 +15,16 @@ export class Home extends Component {
     this.state = {
       questions: '',
       count: 1,
-      intervalId: 0,
+      questionIndex: 0,
     };
   }
 
   itnervalId = 0;
 
   componentDidMount () {
-    const { getQuestionsSuccess } = this.props;
-    const { history } = this.props;
-    if (!getQuestionsSuccess || !getQuestionsSuccess.questions[0]) {
+    const { history, getQuestionsSuccess } = this.props;
+    const { questionIndex } = this.state;
+    if (!getQuestionsSuccess || getQuestionsSuccess.questions === undefined || getQuestionsSuccess.questions[questionIndex] === undefined) {
       history.push('/')
     }
     this.intervalId = setInterval(e => this.updateUnread(), 1000);
@@ -33,7 +34,7 @@ export class Home extends Component {
     clearInterval(this.intervalId);
   }
 
-  updateUnread(){
+  updateUnread() {
     if (this.state.count > 99) {
       clearInterval(this.intervalId);
     }
@@ -42,15 +43,26 @@ export class Home extends Component {
     });
   }
 
+  handleQuestionIndex = index => {
+    this.setState({
+      questionIndex: this.state.questionIndex + 1,
+      count: 1,
+    })
+    this.intervalId = setInterval(e => this.updateUnread(), 1000);
+  }
+
   render() {
-    const { getQuestionsSuccess } = this.props;
-    const { count } = this.state;
+    const { history, getQuestionsSuccess } = this.props;
+    const { count, questionIndex } = this.state;
     return (
-      <React.Fragment>
-        {Object.keys(getQuestionsSuccess.questions).length > 0
-          && <HomeComponent questions={getQuestionsSuccess.questions} count={count} />
-        }
-      </React.Fragment>
+      <HomeComponent
+        questions={getQuestionsSuccess.questions}
+        count={count}
+        handleQuestionIndex={this.handleQuestionIndex}
+        questionIndex={questionIndex}
+        history={history}
+        intervalId={this.intervalId}
+      />
     );
   };
 };
