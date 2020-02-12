@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
+import 'react-toastify/dist/ReactToastify.css';
 import LandingPageComponent from '../../components/landingPage/landingPage';
 import { getQuestions } from '../../redux/actions/questions';
 import { publicDataFetch } from '../../redux/middlewares';
@@ -48,7 +48,7 @@ export class LandingPage extends Component {
 
   fetchQuestions = async () => {
     const { publicDataFetch, getQuestions } = this.props;
-    await publicDataFetch('/preset_questions/1/', getQuestions);
+    await publicDataFetch('/preset_questions/1/', getQuestions, 'game started');
   }
 
   render() {

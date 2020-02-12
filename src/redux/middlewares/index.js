@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ReconnectingWebSocket from 'reconnecting-websocket';
 import errorOccured  from '../actions/error';
 
 
@@ -10,10 +11,37 @@ const axiosInstance = axios.create({
   }
 });
 
-export const publicDataFetch = (endpoint, actionCreator) => (dispatch) => {
+export const publicDataFetch = (endpoint, actionCreator, message) => (dispatch) => {
   return axiosInstance.get(endpoint).then((response) => {
+    runSocket(message);
     dispatch(actionCreator(response.data));
   }).catch((error) => {
     dispatch(errorOccured(error));
   });
 };
+
+const runSocket = (message) => {
+  const messageObj = {
+    message
+  }
+  let loc = window.location;
+  let wsStart = 'ws://';
+  if (loc.protocol === 'https:') {
+    wsStart = 'wss://';
+  }
+  let endpoint = wsStart + `jeffrey-game-api.herokuapp.com/`;
+  let socket = new ReconnectingWebSocket(endpoint);
+  socket.onmessage = (e) => {
+    console.log("message", e);
+  };
+  socket.onopen = (e) => {
+    console.log("open", e);
+    socket.send(JSON.stringify(messageObj));
+  };
+  socket.onerror = (e) => {
+    console.log("error", e);
+  };
+  socket.onclose = (e) => {
+    console.log("closed", e);
+  };
+}
