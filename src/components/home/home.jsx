@@ -13,6 +13,11 @@ const Home = props => {
   if (count === 1 && questions && questions[questionIndex]) {
     handleSocket(questions && questions[questionIndex].id);
   }
+  if (count > 99 && count < 111 && questions && questions[questionIndex]) {
+    setTimeout(function() {
+      handleQuestionIndex();
+    }, 7000)
+  }
   return (
     <div className="home-container">
       {questions && questions[questionIndex] ? (
@@ -74,7 +79,8 @@ const Home = props => {
           </Container>
           <Row>
             <Col className="home-container__timer">
-              <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0" onClick={handleQuestionIndex}/>  
+              <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0"/>
+              {/* <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0" onClick={handleQuestionIndex}/> */}
             </Col>
           </Row>
           <ProgressBar
@@ -86,7 +92,7 @@ const Home = props => {
       ) : (
         <div className="home-container__end">
           <h1 className="home-container__end__text">THE END</h1>
-          <Button className="btn btn-dark" onLoad={clearInterval(intervalId)} onClick={() => { clearInterval(intervalId); history.push('/');}}>Play Again</Button>
+          {/* <Button className="btn btn-dark" onLoad={clearInterval(intervalId)} onClick={() => { clearInterval(intervalId); history.push('/');}}>Play Again</Button> */}
         </div>
       )}
     </div>
