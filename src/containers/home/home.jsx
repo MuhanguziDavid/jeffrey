@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import HomeComponent from '../../components/home/home';
 import { getQuestions } from '../../redux/actions/questions';
-import { publicDataFetch } from '../../redux/middlewares';
+import { publicDataFetch, runSocket } from '../../redux/middlewares';
 
 
 export class Home extends Component {
@@ -50,6 +50,10 @@ export class Home extends Component {
     this.intervalId = setInterval(e => this.updateUnread(), 1000);
   }
 
+  handleSocket = id => {
+    runSocket(id);
+  }
+
   render() {
     const { history, getQuestionsSuccess } = this.props;
     const { count, questionIndex } = this.state;
@@ -61,6 +65,7 @@ export class Home extends Component {
         questionIndex={questionIndex}
         history={history}
         intervalId={this.intervalId}
+        handleSocket={this.handleSocket}
       />
     );
   };
