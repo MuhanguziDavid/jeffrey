@@ -20,7 +20,7 @@ export const publicDataFetch = (endpoint, actionCreator, message) => (dispatch) 
   });
 };
 
-const runSocket = (message) => {
+export const runSocket = (message) => {
   const messageObj = {
     message
   }

@@ -21,7 +21,7 @@ export class LandingPage extends Component {
 
   componentDidMount () {
     this.fetchQuestions();
-    this.intervalId = setInterval(() => this.updateUnread(), 1000);
+    this.intervalId = setInterval(() => this.updateUnread(), 400);
   }
 
   componentWillUnmount() {
