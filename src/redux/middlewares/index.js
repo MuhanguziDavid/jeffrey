@@ -21,6 +21,7 @@ export const publicDataFetch = (endpoint, actionCreator, message) => (dispatch) 
 };
 
 export const runSocket = (message) => {
+  console.log('messageObj', message);
   const messageObj = {
     message
   }
@@ -32,16 +33,16 @@ export const runSocket = (message) => {
   let endpoint = wsStart + `jeffrey-game-api.herokuapp.com/`;
   let socket = new ReconnectingWebSocket(endpoint);
   socket.onmessage = (e) => {
-    console.log("message", e);
+    // console.log("message", e);
   };
   socket.onopen = (e) => {
-    console.log("open", e);
+    // console.log("open", e);
     socket.send(JSON.stringify(messageObj));
   };
   socket.onerror = (e) => {
-    console.log("error", e);
+    // console.log("error", e);
   };
   socket.onclose = (e) => {
-    console.log("closed", e);
+    // console.log("closed", e);
   };
 }

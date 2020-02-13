@@ -11,7 +11,6 @@ import './home.scss';
 const Home = props => {
   const { questions, count, handleQuestionIndex, questionIndex, history, intervalId, handleSocket } = props;
   if (count === 1 && questions && questions[questionIndex]) {
-    console.log('>>>>');
     handleSocket(questions && questions[questionIndex].id);
   }
   return (
