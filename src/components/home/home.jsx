@@ -1,12 +1,25 @@
 import React from 'react';
 import { Container, ProgressBar, Row, Col, Image, Button } from 'react-bootstrap';
 import Clock from 'react-live-clock';
+import { zoomIn, bounceIn } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 import jumbotronEmoji from '../../assets/jumbotronEmoji.jpeg';
 import timer from '../../assets/timer.png';
 import ubc from '../../assets/ubc.jpg';
 import lock from '../../assets/lock.png';
 import like from '../../assets/like.png';
 import './home.scss';
+
+const styles = {
+  zoomIn: {
+    animation: 'x 2s',
+    animationName: Radium.keyframes(zoomIn, 'zoomIn')
+  },
+  bounceIn: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(bounceIn, 'bounceIn')
+  }
+}
 
 const Home = props => {
   const { questions, count, handleQuestionIndex, questionIndex, history, intervalId, handleSocket } = props;
@@ -56,19 +69,28 @@ const Home = props => {
                 <Image className="home-container__emoji__image" src={jumbotronEmoji} alt="Question" scale="0" />
               </Col>
               <Col sm={9} className="home-container__question">
-                <h1><strong>{questions[questionIndex].question.question_text}</strong></h1>
-
+                {count === 1 ? (
+                  <h1 className="home-container__question__nothing" style={styles.zoomIn}><strong>Loading</strong></h1>
+                ) : (
+                  <StyleRoot>
+                    <h1 style={styles.zoomIn}><strong>{questions[questionIndex].question.question_text}</strong></h1>
+                  </StyleRoot>
+                )}
               </Col>
             </Row>
             <Row className="justify-content-md-center">
               {count > 99 ? (
                 <React.Fragment>
-                  <Col md="auto" className="home-container__like">
-                    <Image className="home-container__like__image" src={like} alt="Answer" scale="0" />
-                  </Col>
-                  <Col md="auto" className="home-container__answer">
-                    <h3><strong>{questions[questionIndex].correct_choice.choice_text}</strong></h3>
-                  </Col>
+                  <StyleRoot>
+                    <div style={styles.bounceIn}>
+                      <Col md="auto" className="home-container__like">
+                        <Image className="home-container__like__image" src={like} alt="Answer" scale="0" />
+                      </Col>
+                      <Col md="auto" className="home-container__answer" style={styles.bounce}>
+                        <h3><strong>{questions[questionIndex].correct_choice.choice_text}</strong></h3>
+                      </Col>
+                    </div>
+                  </StyleRoot>
                 </React.Fragment>
               ) : (
                 <div className="home-container__nothing">
@@ -91,8 +113,10 @@ const Home = props => {
         </React.Fragment>
       ) : (
         <div className="home-container__end">
-          <h1 className="home-container__end__text">THE END</h1>
-          {/* <Button className="btn btn-dark" onLoad={clearInterval(intervalId)} onClick={() => { clearInterval(intervalId); history.push('/');}}>Play Again</Button> */}
+          <StyleRoot>
+            <h1 className="home-container__end__text" style={styles.zoomIn}>THE END</h1>
+            {/* <Button className="btn btn-dark" onLoad={clearInterval(intervalId)} onClick={() => { clearInterval(intervalId); history.push('/');}}>Play Again</Button> */}
+          </StyleRoot>
         </div>
       )}
     </div>

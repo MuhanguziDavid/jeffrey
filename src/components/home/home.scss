@@ -47,18 +47,22 @@
   }
 
   &__question {
-    margin: 5% 0 0 0;
+    margin: 5% 0 15% 0;
     box-sizing: border-box;
     position: relative;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
     border-radius: 30px;
     font-weight: bolder;
     padding: 40px 0;
+    &__nothing {
+      background-color: #ffffff;
+      color: #ffffff;
+    }
   }
 
   &__like {
     display: inline-block;
-    margin: 15% 0 0 0%;
+    margin: 0 0 0 0;
     text-align: right;
     &__image {
       width: 80px;
@@ -66,9 +70,10 @@
   }
 
   &__answer {
-    margin: 15% 0 0 0;
+    display: inline-block;
+    margin: 0 0 0 0;
     box-sizing: border-box;
-    position: relative;
+    position: absolute;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
     border-radius: 30px;
     font-weight: bolder;
@@ -77,7 +82,7 @@
   }
 
   &__nothing {
-    margin: 16% 0 0 0;
+    margin: 19px 0 0 0;
     position: relative;
     padding: 20px 0;
     background-color: #ffffff;
