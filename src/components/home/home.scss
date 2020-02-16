@@ -116,4 +116,73 @@
     margin: 0 0 2% 0;
     }
   }
+
+  .footer {
+    margin: 0 0 1% 0;
+    position: fixed;
+    bottom: 0;
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .home-container {
+    &__ubc {
+      &__image {
+        width: 45px;
+      }
+    }
+  
+    &__clock {
+      display: none;
+    }
+  
+    &__lock {
+      &__image {
+        width: 45px;
+      }
+    }
+  
+    &__emoji {
+      margin: 10% 0 0 0%;
+      text-align: center;
+      &__image {
+        width: 120px;
+      }
+    }
+  
+    &__question {
+      margin: 5% 2% 15% 2%;
+    }
+  
+    &__like {
+      text-align: center;
+      &__image {
+        width: 40px;
+      }
+    }
+  
+    &__end {
+      margin: 40% 0 0 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .home-container {
+    .fluid {
+      max-width: 2500px;
+    }
+
+    &__question {
+      margin: 5% 6% 15% 2%;
+    }
+
+    &__like {
+      margin: 5% 0 0 0;
+      &__image {
+        width: 80px;
+      }
+    }
+  }
 }
