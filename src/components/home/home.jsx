@@ -23,13 +23,19 @@ const styles = {
 
 const Home = props => {
   const { questions, count, handleQuestionIndex, questionIndex, history, intervalId, handleSocket } = props;
+  // send socket message when a new question is loaded
   if (count === 1 && questions && questions[questionIndex]) {
     handleSocket(questions && questions[questionIndex].id);
   }
+  // automatically load the next question after a few seconds
   if (count > 99 && count < 111 && questions && questions[questionIndex]) {
     setTimeout(function() {
       handleQuestionIndex();
     }, 7000)
+  }
+  // send socket message to end gamwe
+  if (questions && !questions[questionIndex] && count === 1) {
+    handleSocket('game ended');
   }
   return (
     <div className="home-container">
