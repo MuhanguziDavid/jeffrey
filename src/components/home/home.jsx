@@ -69,7 +69,7 @@ const Home = props => {
               <Image className="home-container__lock__image" src={lock} alt="ubc" scale="0" />
             </Col>
           </Row>
-          <Container>
+          <Container className="fluid">
             <Row className="justify-content-md-center">
               <Col sm={2} className="home-container__emoji">
                 <Image className="home-container__emoji__image" src={jumbotronEmoji} alt="Question" scale="0" />
@@ -105,17 +105,19 @@ const Home = props => {
               )}
             </Row>
           </Container>
-          <Row>
-            <Col className="home-container__timer">
-              <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0"/>
-              {/* <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0" onClick={handleQuestionIndex}/> */}
-            </Col>
-          </Row>
-          <ProgressBar
-            now={count}
-            min={0}
-            max={100}
-          />
+          <div className="footer">
+            <Row>
+              <Col className="home-container__timer">
+                <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0"/>
+                {/* <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0" onClick={handleQuestionIndex}/> */}
+              </Col>
+            </Row>
+            <ProgressBar
+              now={count}
+              min={0}
+              max={100}
+            />
+          </div>
         </React.Fragment>
       ) : (
         <div className="home-container__end">

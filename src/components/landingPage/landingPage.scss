@@ -44,3 +44,47 @@
     margin: 1% 0 0 0;
   }
 }
+
+@media only screen and (max-width: 1024px) and (min-width: 481px) {
+  .landing-container {
+    margin: 10% 0 0 0;
+    &__emoji {
+      &__image {
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .landing-container {
+    margin: 40% 0 0 0;
+    &__emoji {
+      &__image {
+        width: 200px;
+      }
+    }
+    &__starting {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media only screen and (min-width: 2200px) {
+  .landing-container {
+    margin: 20% 0 0 0;
+    &__emoji {
+      &__image {
+        width: 700px;
+      }
+    }
+
+    &__starting {
+      font-size: 4em;
+    }
+  
+    &__clock {
+      font-size: 1.5em;
+    }
+  }
+}
