@@ -86,14 +86,24 @@ const Home = props => {
             </Row>
             <Row className="justify-content-md-center">
               {count > 99 ? (
+                // <React.Fragment>
+                //   <StyleRoot>
+                //     <div style={styles.bounceIn}>
+                //       <Col md="auto" className="home-container__like">
+                //         <Image className="home-container__like__image" src={like} alt="Answer" scale="0" />
+                //       </Col>
+                //       <Col md="auto" className="home-container__answer" style={styles.bounce}>
+                //         <h3><strong>{questions[questionIndex].correct_choice.choice_text}</strong></h3>
+                //       </Col>
+                //     </div>
+                //   </StyleRoot>
+                // </React.Fragment>
+
                 <React.Fragment>
                   <StyleRoot>
                     <div style={styles.bounceIn}>
                       <Col md="auto" className="home-container__like">
-                        <Image className="home-container__like__image" src={like} alt="Answer" scale="0" />
-                      </Col>
-                      <Col md="auto" className="home-container__answer" style={styles.bounce}>
-                        <h3><strong>{questions[questionIndex].correct_choice.choice_text}</strong></h3>
+                        <h3><strong>Time up!!!</strong></h3>
                       </Col>
                     </div>
                   </StyleRoot>
