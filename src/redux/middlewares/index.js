@@ -4,7 +4,7 @@ import errorOccured  from '../actions/error';
 
 
 const axiosInstance = axios.create({
-  baseURL: 'https://jeffrey-game-api.herokuapp.com/v1/api',
+  baseURL: 'http://142.93.248.239/v1/api',
   timeout: 60000,
   headers: {
     'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const runSocket = (message) => {
   if (loc.protocol === 'https:') {
     wsStart = 'wss://';
   }
-  let endpoint = wsStart + `jeffrey-game-api.herokuapp.com/`;
+  let endpoint = wsStart + `142.93.248.239/`;
   let socket = new ReconnectingWebSocket(endpoint);
   socket.onmessage = (e) => {
     // console.log("message", e);
