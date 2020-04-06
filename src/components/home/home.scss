@@ -19,6 +19,15 @@
     margin: 1% 0 0 0;
   }
 
+  &__red_circle {
+    margin: 4px 0 0 0;
+    text-align: right;
+    &__image {
+      display: inline-block;
+      width: 17px;
+    }
+  }
+
   &__topic {
     background-color: #000000;
     border-radius: 20px;
@@ -32,8 +41,21 @@
     margin: 0 0 0 0;
     text-align: right;
     &__image {
+      position: relative;
       display: inline-block;
       width: 70px;
+    }
+    &__red_circle {
+      position: absolute;
+      z-index: 10;
+      display: inline-block;
+      width: 30px;
+      color: #ffffff;
+      background-color: #ff0000;
+      border-radius: 100%;
+      border: 3px solid #ffffff;
+      margin: 40px 0 0 -38px;
+      padding: 0 7px 0 0;
     }
   }
 

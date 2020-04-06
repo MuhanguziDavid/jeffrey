@@ -8,6 +8,7 @@ import timer from '../../assets/timer.png';
 import ubc from '../../assets/ubc.jpg';
 import lock from '../../assets/lock.png';
 import like from '../../assets/like.png';
+import red_circle from '../../assets/red_circle.png';
 import './home.scss';
 
 const styles = {
@@ -56,6 +57,9 @@ const Home = props => {
                 </Col>
               </Row>
               <Row className="justify-content-md-center">
+                <Col md="auto" className="home-container__red_circle">
+                  <Image className="home-container__red_circle__image" src={red_circle} alt="" scale="0" />
+                </Col>
                 <Col md="auto" className="home-container__topic">
                   {questions ? (
                     questions[questionIndex].question.category
@@ -67,6 +71,7 @@ const Home = props => {
             </Col>
             <Col className="home-container__lock">
               <Image className="home-container__lock__image" src={lock} alt="ubc" scale="0" />
+              <span className="home-container__lock__red_circle"><strong>3</strong></span>
             </Col>
           </Row>
           <Container className="fluid">
@@ -86,6 +91,7 @@ const Home = props => {
             </Row>
             <Row className="justify-content-md-center">
               {count > 99 ? (
+                // Show answers
                 // <React.Fragment>
                 //   <StyleRoot>
                 //     <div style={styles.bounceIn}>
@@ -99,6 +105,7 @@ const Home = props => {
                 //   </StyleRoot>
                 // </React.Fragment>
 
+                // Dont show answers
                 <React.Fragment>
                   <StyleRoot>
                     <div style={styles.bounceIn}>
@@ -118,7 +125,9 @@ const Home = props => {
           <div className="footer">
             <Row>
               <Col className="home-container__timer">
+                {/* non clickable button */}
                 <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0"/>
+                {/* clickable button */}
                 {/* <Image className="home-container__timer__image" src={timer} alt="timed game" scale="0" onClick={handleQuestionIndex}/> */}
               </Col>
             </Row>
