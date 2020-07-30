@@ -4,7 +4,7 @@ import errorOccured  from '../actions/error';
 
 
 const axiosInstance = axios.create({
-  baseURL: 'http://142.93.248.239/v1/api',
+  baseURL: 'http://ec2-52-14-227-120.us-east-2.compute.amazonaws.com/v1/api',
   timeout: 60000,
   headers: {
     'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const runSocket = (message) => {
   if (loc.protocol === 'https:') {
     wsStart = 'wss://';
   }
-  let endpoint = wsStart + `142.93.248.239/`;
+  let endpoint = wsStart + `ec2-52-14-227-120.us-east-2.compute.amazonaws.com/`;
   let socket = new ReconnectingWebSocket(endpoint);
   socket.onmessage = (e) => {
     // console.log("message", e);
